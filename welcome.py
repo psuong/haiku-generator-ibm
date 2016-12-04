@@ -13,16 +13,28 @@
 # limitations under the License.
 
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return "Hello world"
+    """
+    Renders the default page for the app to render.
+    """
+    context_dict = {
+        "page_title": "Haiku Generator",
+        "action_url": "/"
+    }
+    return render_template("main.html", **context_dict)
+
+# TODO: Fill out the function
+@app.route("/generate-haiku", methods=["GET", "POST"])
+def generate_haiku():
+    pass
 
 
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
-	app.run(host='127.0.0.1', port=int(port))
+	app.run(debug=True, host='127.0.0.1', port=int(port))

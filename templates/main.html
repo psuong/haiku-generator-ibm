@@ -1,0 +1,31 @@
+{% extends "default.html" %}
+
+{% block main %}
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Haiku Generator</p>
+            </div>
+        </nav>
+<header/>
+
+<main>
+    <div class="row center">
+        <p class="flow-text">
+            {# TODO: Add variables for the lines #}
+            I am first with five
+            <br>
+            Then seven in the middle --
+            <br>
+            Five again to end.
+        </p>
+        <hr>
+        <br>
+        <form class="row" method="post" action="{{ action_url }}">
+            <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</main>
+{% endblock %}
