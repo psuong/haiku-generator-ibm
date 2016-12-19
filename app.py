@@ -17,22 +17,25 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
+# Global Variables
+post_request = "POST"
+get_request = "GET"
 
-@app.route("/")
+
+@app.route("/", methods = ["GET", "POST"])
 def index():
     """
     Renders the default page for the app to render.
     """
     context_dict = {
         "page_title": "Haiku Generator",
-        "action_url": "/generate-haiku"
+        "form_action": "/",
+        "haiku": None
     }
-    return render_template("main.html", **context_dict)
 
-# TODO: Fill out the function
-@app.route("/generate-haiku", methods=["GET", "POST"])
-def generate_haiku():
-    pass
+    if request.method == post_request:
+        return "POST"
+    return render_template("main.html", **context_dict)
 
 
 port = os.getenv('PORT', '5000')

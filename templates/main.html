@@ -4,24 +4,28 @@
 <header>
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Haiku Generator</p>
-            </div>
-        </nav>
-<header/>
+            <a href="#" class="brand-logo center">Haiku Generator</a>
+        </div>
+    </nav>
+</header>
 
 <main>
     <div class="row center">
-        <p class="flow-text">
-            {# TODO: Add variables for the lines #}
-            I am first with five
-            <br>
-            Then seven in the middle --
-            <br>
-            Five again to end.
-        </p>
+        {% if haiku %}
+            <p class="flow-text">
+                {# TODO: Add variables for the lines #}
+                I am first with five
+                <br>
+                Then seven in the middle --
+                <br>
+                Five again to end.
+            </p>
+        {% else %}
+            <p class="flow-text">Generate a Haiku Below</p>
+        {% endif %}
         <hr>
         <br>
-        <form class="row" method="post" action="{{ action_url }}">
+        <form class="row" method="post" action="{{ form_action }}">
             <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
