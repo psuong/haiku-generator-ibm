@@ -25,7 +25,7 @@ def index():
     """
     context_dict = {
         "page_title": "Haiku Generator",
-        "action_url": "/"
+        "action_url": "/generate-haiku"
     }
     return render_template("main.html", **context_dict)
 
