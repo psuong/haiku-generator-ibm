@@ -12,16 +12,14 @@
 <main>
     <div class="row center">
         {% if haiku %}
-            <p class="flow-text">
-                {# TODO: Add variables for the lines #}
-                I am first with five
-                <br>
-                Then seven in the middle --
-                <br>
-                Five again to end.
-            </p>
+        <p class="flow-text">
+            {% for line in haiku %}
+            {{ line }}
+            <br>
+            {% endfor %}
+        </p>
         {% else %}
-            <p class="flow-text">Generate a Haiku Below</p>
+        <p class="flow-text">Generate a Haiku Below</p>
         {% endif %}
         <hr>
         <br>

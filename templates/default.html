@@ -15,8 +15,8 @@
     {% endblock %}
 
     {% block scripts %}
-        {# Defer the javascript files to load at the end of the webpage #}
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js" defer></script>
-        <script type="text/javascript" src="{{ url_for('static', filename="js/materialize.min.js") }}" defer></script>
+    {# Defer the javascript files to load at the end of the webpage #}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js" defer></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/materialize.min.js") }}" defer></script>
     {% endblock %}
 </body>
