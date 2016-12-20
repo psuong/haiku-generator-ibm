@@ -14,6 +14,7 @@
 
 import os
 from flask import Flask, jsonify, render_template, request
+from haiku_generator import generate_random_lines, generate_line
 
 app = Flask(__name__)
 
@@ -42,11 +43,7 @@ def index():
     if request.method == post_request:
         # Update the haiku if the app received a post request
         # TODO: Write a function which generates the sentences
-        haiku = []
-        haiku.append("An old pond")
-        haiku.append("A frog jumps in --")
-        haiku.append("the sound of water.")
-        context_dict["haiku"] = haiku
+        context_dict["haiku"] = generate_random_lines()
 
     # Render the template here
     return render_template("main.html", **context_dict)
