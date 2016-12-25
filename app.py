@@ -52,4 +52,4 @@ def index():
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
     # TODO: Make sure to change the host from local to external
-	app.run(debug=True, host='127.0.0.1', port=int(port))
+	app.run(debug=True, host='0.0.0.0', port=int(port))
