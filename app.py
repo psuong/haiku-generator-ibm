@@ -48,9 +48,7 @@ def run():
 
 
 if __name__ == "__main__":
-    # TODO: create a run function which takes a system argument to switch between
-    # local and external host
-    # app.run(host='0.0.0.0', port=int(port))
-	# app.run(debug=True, host='127.0.0.1', port=int(port))
-
-    run()
+    try:
+        run()
+    except KeyError:
+        raise KeyError("Use \"local\" to run the app on localhost or \"external\" to run this on IPV4 compliant port.")
