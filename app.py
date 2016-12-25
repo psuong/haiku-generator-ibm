@@ -1,6 +1,10 @@
 import os
+import sys
 from flask import Flask, jsonify, render_template, request
 from haiku_generator import generate_random_lines, generate_line
+
+app_args = {"local": "127.0.0.1",
+            "external": "0.0.0.0"}
 
 app = Flask(__name__)
 
@@ -35,9 +39,18 @@ def index():
     return render_template("main.html", **context_dict)
 
 
-port = os.getenv('PORT', '5000')
+def run():
+    """
+    This runs the main file of the program
+    """
+    port = os.getenv('PORT', '5000')
+    app.run(host=app_args[sys.argv[1]], port=int(port), debug=True)
+
+
 if __name__ == "__main__":
     # TODO: create a run function which takes a system argument to switch between
     # local and external host
-    app.run(host='0.0.0.0', port=int(port))
+    # app.run(host='0.0.0.0', port=int(port))
 	# app.run(debug=True, host='127.0.0.1', port=int(port))
+
+    run()
