@@ -1,20 +1,10 @@
-# Copyright 2015 IBM Corp. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import os
+import sys
 from flask import Flask, jsonify, render_template, request
 from haiku_generator import generate_random_lines, generate_line
+
+app_args = {"local": "127.0.0.1",
+            "external": "0.0.0.0"}
 
 app = Flask(__name__)
 
@@ -49,7 +39,16 @@ def index():
     return render_template("main.html", **context_dict)
 
 
-port = os.getenv('PORT', '5000')
+def run():
+    """
+    This runs the main file of the program
+    """
+    port = os.getenv('PORT', '5000')
+    app.run(host=app_args[sys.argv[1]], port=int(port), debug=True)
+
+
 if __name__ == "__main__":
-    # TODO: Make sure to change the host from local to external
-	app.run(debug=True, host='0.0.0.0', port=int(port))
+    try:
+        run()
+    except KeyError:
+        raise KeyError("Use \"local\" to run the app on localhost or \"external\" to run this on IPV4 compliant port.")

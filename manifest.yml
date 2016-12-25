@@ -3,9 +3,7 @@ applications:
   memory: 128M
   instances: 1
   domain: mybluemix.net
-  name: haiku-finalos
-  host: haiku-finalos
+  name: haiku-generator-os
+  host: haiku-generator-os
   disk_quota: 1024M
-  services:
-  - availability-monitoring-auto
   buildpack: python_buildpack

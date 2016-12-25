@@ -3,6 +3,8 @@ This repository is for Professor Barnett's Operating System's class. This is a
 haiku generator which is built directly on IBM Bluemix's webapp service.
 
 ### Installation
+This project runs on **Python 2.7**.
+
 To meet all the requirements for the Flask App run:
 
 `pip install -r requirements.txt`
@@ -25,7 +27,16 @@ In your current directory via your terminal run,
 
 `source venv/bin/activate`
 
+### Running the Application
+To run this app on localhost simply write in your terminal:
+
+`python app.py local`
+
+For an IPV4 compliant port you can run:
+
+`python app.py external`
+
 ### Contributors
-* Edward Chin
-* Haider Nafees
+* ~~Edward Chin~~
+* ~~Haider Nafees~~
 * Porrith Suong
