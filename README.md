@@ -35,8 +35,3 @@ To run this app on localhost simply write in your terminal:
 For an IPV4 compliant port you can run:
 
 `python app.py external`
-
-### Contributors
-* ~~Edward Chin~~
-* ~~Haider Nafees~~
-* Porrith Suong
